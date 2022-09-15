@@ -64,11 +64,16 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(baseContext, "Saved", Toast.LENGTH_SHORT).show()
     }
 
-    fun clearData(){
+    fun clearData(view: View){
         val mEditor : SharedPreferences.Editor = sharedPreferences!!.edit()
         mEditor.putString(name, "")
         mEditor.putString(email, "")
+        editTextName!!.text.clear()
+        editTextEmail!!.text.clear()
+        textViewName.text = ""
+        textViewEmail.text = ""
         mEditor.commit()
+
         Toast.makeText(baseContext, "Cleared data", Toast.LENGTH_SHORT).show()
     }
 }
